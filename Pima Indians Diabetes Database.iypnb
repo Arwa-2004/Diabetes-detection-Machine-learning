@@ -1,0 +1,64 @@
+import numpy as np
+import pandas as pd 
+
+import matplotlib.pyplot as plt 
+import seaborn as sns
+
+%matplotlib inline
+
+diabetes= pd.read_csv('diabetes.csv')
+
+diabetes.head()
+
+diabetes.info()
+
+diabetes.columns
+
+diabetes[['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']] = diabetes[['Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']].replace(0, np.nan)
+diabetes.head()
+
+diabetes.fillna(diabetes.mean(), inplace=True)
+diabetes.head()
+
+sns.countplot(x='Outcome', data=diabetes)
+sns.boxplot(x='Outcome', data=diabetes, y='Age')
+sns.heatmap(diabetes.isnull(),yticklabels=False,cbar=False,cmap='viridis')
+
+ #specifying feature and prediction (x) and (y)
+X= diabetes.drop('Outcome',axis=1)
+y=diabetes['Outcome']
+
+# splitting and training and testing the data
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+logmodel=LogisticRegression()
+
+from sklearn.linear_model import LogisticRegression
+
+
+logmodel = LogisticRegression()
+logmodel.fit(X_train, y_train)
+
+#setting the prediciton based on X_test
+predictions= logmodel.predict(X_test)
+
+from sklearn.metrics import confusion_matrix
+confusion_matrix(y_test, predictions)
+# Create a heatmap
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False, xticklabels=['Non-Diabetic', 'Diabetic'], yticklabels=['Non-Diabetic', 'Diabetic'])
+
+# Add labels and title
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix')
+plt.show()
+from sklearn.metrics import classification_report
+print(classification_report(y_test, predictions))
