@@ -1,6 +1,6 @@
 # Pima Indians Diabetes Prediction
 
-In this project, I used Logistic Regression to predict the onset of diabetes based on diagnostic measures from the Pima Indians Diabetes dataset from ***kaggle**. Note that all patients are females at least 21 years old of Pima Indian heritage.
+In this project, I used Logistic Regression to predict the onset of diabetes based on diagnostic measures from the Pima Indians Diabetes dataset from [kaggle](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database). Note that all patients are females at least 21 years old of Pima Indian heritage.
 
 ## Dataset
 The dataset contains 768 samples with 8 features (Age, Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, glucose level, BMI) and a binary target variable (1 = diabetic, 0 = non-diabetic).
