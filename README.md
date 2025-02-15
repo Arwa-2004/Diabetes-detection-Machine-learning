@@ -1,4 +1,6 @@
 # Pima Indians Diabetes Prediction
+![image](https://github.com/user-attachments/assets/19d6f5ee-1522-46ef-94a5-b0e4aa69ba86)
+
 
 In this project, I used Logistic Regression, SVM, KNN, and SMOTE to predict the onset of diabetes based on diagnostic measures from the Pima Indians Diabetes dataset from [kaggle](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database). Note that all patients are females at least 21 years old of Pima Indian heritage.
 
@@ -74,6 +76,15 @@ The dataset contains 768 samples with 8 features (Age, Pregnancies, Glucose, Blo
 ### SVM and SMOTE + SVM have the highest precision for non-diabetic cases (88% and 89%) and have the highest recall for diabetic cases (83% and 84%, respectively).
 ### Logistic Regression has the highest precision for diabetic cases (71%), and has the highest recall for non-diabetic cases (87%).
 
+# Visuals 
+
+### where the hue represents the outcome and the vars are Glucose,BMI, Age, and BloodPressure.
+![image](https://github.com/user-attachments/assets/cadedcdd-afa4-447b-bc4e-21076485af32)
+
+
+### 0= male, 1=female 
+![image](https://github.com/user-attachments/assets/7c318199-595b-45d8-a4bf-e757e17517d0)
+![image](https://github.com/user-attachments/assets/3f948743-a61b-4937-b0cf-fd3f73fbae61)
 
 # So which model is the best? 🤔
 For Non-Diabetic Cases (Class 0)
